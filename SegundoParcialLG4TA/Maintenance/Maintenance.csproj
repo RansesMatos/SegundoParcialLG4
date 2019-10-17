@@ -5,19 +5,18 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{927E8958-E843-4413-ADF7-CA75BFAD89A2}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>SegundoParcialLG4TA</RootNamespace>
-    <AssemblyName>SegundoParcialLG4TA</AssemblyName>
+    <ProjectGuid>{999E284E-00C7-4411-95AB-29F783B994DD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Maintenance</RootNamespace>
+    <AssemblyName>Maintenance</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -27,7 +26,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -45,8 +43,6 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,68 +51,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Categories.cs">
-      <DependentUpon>Segundo_Parcial.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Menu\MenuMaintenace.cs" />
-    <Compile Include="Menu\MenuPrincipal.cs" />
-    <Compile Include="Methods\ClientMigrations.cs" />
-    <Compile Include="Methods\ExportData.cs" />
-    <Compile Include="Products.cs">
-      <DependentUpon>Segundo_Parcial.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ProductsData.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Categories.cs" />
+    <Compile Include="Products.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\BaseRepository.cs" />
-    <Compile Include="Repository\IBaseRepository.cs" />
-    <Compile Include="Segundo_Parcial.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Segundo_Parcial.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Segundo_Parcial.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Segundo_Parcial.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Segundo_Parcial.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Segundo_Parcial.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Territories.cs">
-      <DependentUpon>Segundo_Parcial.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Territories.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SegundoParcialLG4TA\SegundoParcialLG4TA.csproj">
+      <Project>{927e8958-e843-4413-adf7-ca75bfad89a2}</Project>
+      <Name>SegundoParcialLG4TA</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="Segundo_Parcial.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Segundo_Parcial.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="packages.config" />
-    <None Include="Segundo_Parcial.edmx.diagram">
-      <DependentUpon>Segundo_Parcial.edmx</DependentUpon>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Maintenance\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Segundo_Parcial.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Segundo_Parcial.Context.cs</LastGenOutput>
-      <DependentUpon>Segundo_Parcial.edmx</DependentUpon>
-    </Content>
-    <Content Include="Segundo_Parcial.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Segundo_Parcial.edmx</DependentUpon>
-      <LastGenOutput>Segundo_Parcial.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
