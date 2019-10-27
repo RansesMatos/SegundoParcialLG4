@@ -17,6 +17,8 @@ namespace SegundoParcialLG4TA
             
             Console.ReadKey();
 
+
+
         }
     }
 }

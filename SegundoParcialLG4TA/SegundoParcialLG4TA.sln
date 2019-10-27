@@ -3,7 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29409.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SegundoParcialLG4TA", "SegundoParcialLG4TA\SegundoParcialLG4TA.csproj", "{927E8958-E843-4413-ADF7-CA75BFAD89A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SEGUNDOLP4.DATA", "SEGUNDOLP4.DATA\SEGUNDOLP4.DATA.csproj", "{2F1EDF09-94D2-43A2-B730-F8601215188D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSQLSEGUNDOPARCIAL", "CSQLSEGUNDOPARCIAL\CSQLSEGUNDOPARCIAL.csproj", "{0257CB20-FD60-409C-AC14-2D23CA98580A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2F1EDF09-94D2-43A2-B730-F8601215188D} = {2F1EDF09-94D2-43A2-B730-F8601215188D}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLCONSOLEAPP", "SQLCONSOLEAPP\SQLCONSOLEAPP.csproj", "{170530C6-C76A-4124-BCAC-6233D065AC53}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +18,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{927E8958-E843-4413-ADF7-CA75BFAD89A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{927E8958-E843-4413-ADF7-CA75BFAD89A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{927E8958-E843-4413-ADF7-CA75BFAD89A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{927E8958-E843-4413-ADF7-CA75BFAD89A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F1EDF09-94D2-43A2-B730-F8601215188D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F1EDF09-94D2-43A2-B730-F8601215188D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F1EDF09-94D2-43A2-B730-F8601215188D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F1EDF09-94D2-43A2-B730-F8601215188D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0257CB20-FD60-409C-AC14-2D23CA98580A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0257CB20-FD60-409C-AC14-2D23CA98580A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0257CB20-FD60-409C-AC14-2D23CA98580A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0257CB20-FD60-409C-AC14-2D23CA98580A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{170530C6-C76A-4124-BCAC-6233D065AC53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{170530C6-C76A-4124-BCAC-6233D065AC53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{170530C6-C76A-4124-BCAC-6233D065AC53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{170530C6-C76A-4124-BCAC-6233D065AC53}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
