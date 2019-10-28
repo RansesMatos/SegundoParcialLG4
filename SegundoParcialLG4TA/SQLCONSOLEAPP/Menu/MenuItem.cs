@@ -1,6 +1,8 @@
 ﻿
 
 
+using SQLCONSOLEAPP.Data;
+using SQLCONSOLEAPP.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +29,8 @@ namespace SegundoParcialLG4TA.Menu
         public void productos()
         {
                     ConsoleKeyInfo sa;
+            Products products = new Products();
+            ProductsData data = new ProductsData();
             
                 do
                 {
@@ -45,6 +49,40 @@ namespace SegundoParcialLG4TA.Menu
 
                         case ConsoleKey.A:
                             Console.WriteLine("seleccionó la opción Agregar Producto ");
+
+                            Console.WriteLine("Ingrese el Id del producto");
+                            products.ProductID =Convert.ToInt32( Console.ReadLine());
+
+                            Console.WriteLine("Ingrese el nombre del producto");
+                            products.ProductName = Console.ReadLine();
+
+                            Console.WriteLine("Ingrese el id del suplidor");
+                            products.SupplierID = Convert.ToInt32(Console.ReadLine());
+
+                            Console.WriteLine("Ingrese el id de la categoria");
+                            products.CategoryID = Convert.ToInt32(Console.ReadLine());
+
+                            Console.WriteLine("Ingrese la cantidad por unidad ");
+                            products.QuantityPerUnit  = Console.ReadLine();
+
+                            Console.WriteLine("Ingrese el precio por unidad");
+                            products.QuantityPerUnit=Console.ReadLine();
+
+                            Console.WriteLine("Ingrese las unidades de stock");
+                            products.UnitsInStock = Convert.ToInt16(Console.ReadLine());
+
+                            Console.WriteLine("Ingrese las unidades en orden");
+                            products.UnitsOnOrder = Convert.ToInt16(Console.ReadLine());
+
+                            Console.WriteLine("Ingrese el nivel de reordenamiento");
+                            products.ReorderLevel = Convert.ToInt16(Console.ReadLine());
+
+                            Console.WriteLine("Ingrese si esta activo el producto");
+                            products.Discontinued = Convert.ToBoolean(Console.ReadLine());
+
+                            data.Insert(products);
+
+
                             Console.Write("Presione una tecla para continuar...");
                             Console.ReadKey();
                             break;
@@ -57,6 +95,13 @@ namespace SegundoParcialLG4TA.Menu
 
                         case ConsoleKey.B:
                             Console.WriteLine("Ud seleccionó la opción Buscar Producto");
+                             var produc = data.GetAll();
+                       
+                         foreach (var item in produc)
+                        {
+                           Console.WriteLine(item.ProductID+"   "+item.ProductName);
+                            Console.WriteLine(); 
+                        }
                             Console.Write("Presione una tecla para continuar...");
                             Console.ReadKey();
                             break;
