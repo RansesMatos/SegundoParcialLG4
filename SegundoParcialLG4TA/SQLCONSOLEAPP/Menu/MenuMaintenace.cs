@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SQLCONSOLEAPP.Maintenance;
+using SQLCONSOLEAPP.Models;
 
 namespace SegundoParcialLG4TA.Menu
 {
     public class MenuMaintenace
     {
+     //dd
         public void  Menu()
         {
              
@@ -31,8 +34,9 @@ namespace SegundoParcialLG4TA.Menu
                         case ConsoleKey.P:
                         MenuItem MI = new MenuItem();
                         MI.productos();
-                            Console.ReadKey();
-                            break;
+                       
+                        Console.ReadKey();
+                        break;
 
                         case ConsoleKey.C:
                         MenuItem MI2 = new MenuItem();
