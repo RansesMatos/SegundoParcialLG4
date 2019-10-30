@@ -46,6 +46,7 @@ namespace SegundoParcialLG4TA.Menu
                     Console.Write("[Esc]Salir  ");
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Seleccione opcion...");
+                //Console Ranses
 
                 var queryProducts = data.GetProducts();
 
