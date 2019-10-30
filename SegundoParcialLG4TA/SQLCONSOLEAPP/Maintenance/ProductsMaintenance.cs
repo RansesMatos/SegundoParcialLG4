@@ -14,6 +14,7 @@ namespace SQLCONSOLEAPP.Maintenance
         {
             return entities.Products.ToList();
         }
+        //dd
         public Products GetById ( int? idproduct)
         {
             var query = entities.Products.FirstOrDefault(i => i.ProductID == idproduct);

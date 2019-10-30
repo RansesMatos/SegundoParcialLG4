@@ -14,6 +14,7 @@ namespace SQLCONSOLEAPP.Maintenance
         {
             return entities.Categories.ToList();
         }
+        //ddd
         public Categories GetById(int? idcategory)
         {
             var query = entities.Categories.FirstOrDefault(i => i.CategoryID == idcategory);
