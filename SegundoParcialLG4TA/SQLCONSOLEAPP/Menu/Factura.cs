@@ -18,7 +18,7 @@ namespace SQLCONSOLEAPP.Menu
             int cantidad = 0;
             int productos;
             DateTime fecha;
-            DateTime fecha2;
+           // DateTime fecha2;
             DateTime fecha3;
             OrderData OD = new OrderData();
             OrdenDetailData ODD = new OrdenDetailData();
