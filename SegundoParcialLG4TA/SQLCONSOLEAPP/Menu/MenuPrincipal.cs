@@ -1,4 +1,5 @@
-﻿using SQLCONSOLEAPP.Menu;
+﻿using SQLCONSOLEAPP.Data;
+using SQLCONSOLEAPP.Menu;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace SegundoParcialLG4TA.Menu
     {
         public void MenuP()
         {
+            Factura FA = new Factura();
             ConsoleKeyInfo sa;
             do
             {
@@ -26,6 +28,7 @@ namespace SegundoParcialLG4TA.Menu
                 sa = Console.ReadKey(true);
                 switch (sa.Key)
                 {
+
                     case ConsoleKey.M:
                         Console.WriteLine("seleccionó la opción Mantenimientos");
                         MenuMaintenace ma = new MenuMaintenace();
@@ -34,20 +37,20 @@ namespace SegundoParcialLG4TA.Menu
                         break;
 
                     case ConsoleKey.F:
-                        Console.WriteLine("Ud seleccionó la opción Facturacion");
-                        Factura FA = new Factura();
-                        FA.factura();
+                        Console.WriteLine("Ud seleccionó la opción Facturacion");                        
+                        FA.factura();                        
                         Console.ReadKey();
                         break;
 
                     case ConsoleKey.C:
-                        Console.WriteLine("Ud seleccionó la opción Buscar");
+                        Console.WriteLine("Ud seleccionó la opción Cargar archivo CVS de clientes");
                         Console.Write("Presione una tecla para continuar...");
                         Console.ReadKey();
                         break;
                     case ConsoleKey.I:
-                        Console.WriteLine("Ud seleccionó la opción Buscar");
+                        Console.WriteLine("Ud seleccionó la Imprimir una factura");
                         Console.Write("Presione una tecla para continuar...");
+                        FA.Imprimir();
                         Console.ReadKey();
                         break;
 

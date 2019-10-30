@@ -55,6 +55,7 @@
     <Compile Include="Data\OrdenDetailData.cs" />
     <Compile Include="Data\OrderData.cs" />
     <Compile Include="Data\ProductsData.cs" />
+    <Compile Include="Maintenance\Orders.cs" />
     <Compile Include="Maintenance\Products.cs" />
     <Compile Include="Menu\Factura.cs" />
     <Compile Include="Menu\MenuItem.cs" />

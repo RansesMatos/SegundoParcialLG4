@@ -9,21 +9,38 @@ namespace SQLCONSOLEAPP.Data
 {
     public class OrderData
     {
+        NorthwindEntities n = new NorthwindEntities();
 
         public OrderData()
         {
 
         }
+        public Orders GetById(int orderID)
+        {
+            var Z =n.Set<Orders>().FirstOrDefault(x => x.OrderID == orderID);
+            return Z;
+                
             
 
-            public List<Orders> ObtenerFacturas()
+        }
+        public Orders GetAuto()
+        {
+            var Z = n.Set<Orders>().Find(n.Orders.Max(p => p.OrderID));
+            return Z;
+
+
+
+        }
+
+
+
+        public List<Orders> ObtenerFacturas()
             {
 
-                using (NorthwindEntities n = new NorthwindEntities())
-                {
+                
 
                     return n.Orders.ToList();
-                }
+                
 
 
             }
@@ -33,16 +50,19 @@ namespace SQLCONSOLEAPP.Data
 
                 try
                 {
-                    using (NorthwindEntities n = new NorthwindEntities())
-                    {
+                    
 
                         n.Orders.Add(orders);
                         n.SaveChanges();
 
-                    }
+                    
                     return true;
                 }
-                catch (Exception) { return false; }
+                catch (Exception e) 
+            {
+                Console.WriteLine("Error "+ e);
+                return false; 
+            }
             }
 
             public bool Eliminar(Orders orders)
@@ -50,14 +70,13 @@ namespace SQLCONSOLEAPP.Data
 
                 try
                 {
-                    using (NorthwindEntities n = new NorthwindEntities())
-                    {
+                   
 
                         var resultado = n.Orders.Where(a => a.OrderID == orders.OrderID).Select(x => x).FirstOrDefault();
                         n.Orders.Remove(resultado);
                         n.SaveChanges();
 
-                    }
+                    
                     return true;
                 }
                 catch (Exception) { return false; }
@@ -69,15 +88,13 @@ namespace SQLCONSOLEAPP.Data
 
                 try
                 {
-                    using (NorthwindEntities n = new NorthwindEntities())
-                    {
+                    
 
                        var resultado = n.Orders.Where(a => a.Order_Details == orders.Order_Details).Select(x => x).FirstOrDefault();
                         resultado.OrderID = orders.OrderID;
                         n.SaveChanges();
 
-                    }
-                    return true;
+                     return true;
                 }
                 catch (Exception) { return false; }
 
