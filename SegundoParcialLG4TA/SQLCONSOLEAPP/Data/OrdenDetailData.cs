@@ -13,8 +13,6 @@ namespace SQLCONSOLEAPP.Data
         {
 
         }
-
-
         public List<Order_Details> ObtenerFacturas()
         {
 
