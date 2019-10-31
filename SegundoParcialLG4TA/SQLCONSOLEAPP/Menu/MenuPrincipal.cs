@@ -52,6 +52,7 @@ namespace SegundoParcialLG4TA.Menu
                     case ConsoleKey.C:
                         Console.WriteLine("Ud seleccionó la opción de cargar un Archivo CSV");
                         var appSettings = ConfigurationManager.AppSettings["pathCsv"];
+
                         string content = File.ReadAllText(appSettings, Encoding.UTF8);
                         CustomerMaintenance cm = new CustomerMaintenance();
                         Console.WriteLine(content);
