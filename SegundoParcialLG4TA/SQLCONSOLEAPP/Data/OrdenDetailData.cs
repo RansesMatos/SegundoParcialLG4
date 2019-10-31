@@ -1,5 +1,4 @@
-﻿using SegundoParcialLG4TA.Menu;
-using SQLCONSOLEAPP.Models;
+﻿using SQLCONSOLEAPP.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +13,7 @@ namespace SQLCONSOLEAPP.Data
         {
 
         }
-        public List<Order_Details> ObtenerFacturasDetalle()
+        public List<Order_Details> ObtenerFacturas()
         {
 
             using (NorthwindEntities n = new NorthwindEntities())
@@ -35,7 +34,7 @@ namespace SQLCONSOLEAPP.Data
                 {
 
                     n.Order_Details.Add(ORD);
-                    
+                    n.SaveChanges();
 
                 }
                 return true;
@@ -81,29 +80,5 @@ namespace SQLCONSOLEAPP.Data
 
         }
 
-        public bool SAVE(Order_Details ORD)
-        {
-
-            try
-            {
-                using (NorthwindEntities n = new NorthwindEntities())
-                {
-
-                    n.SaveChanges();
-
-
-                }
-                return true;
-            }
-            catch (Exception) 
-            {
-
-                Console.WriteLine("El nombre del Cliente no Existe");
-                MenuPrincipal mnu = new MenuPrincipal();
-                mnu.MenuP();
-                return false;
-
-                 }
-        }
     }
 }

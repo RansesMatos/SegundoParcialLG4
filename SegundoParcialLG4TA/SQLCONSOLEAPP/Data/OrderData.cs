@@ -1,5 +1,4 @@
-﻿using SegundoParcialLG4TA.Menu;
-using SQLCONSOLEAPP.Models;
+﻿using SQLCONSOLEAPP.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -61,9 +60,7 @@ namespace SQLCONSOLEAPP.Data
                 }
                 catch (Exception e) 
             {
-                Console.WriteLine("El nombre del Cliente no Existe");
-                MenuPrincipal mnu = new MenuPrincipal();
-                mnu.MenuP();
+                Console.WriteLine("Error "+ e);
                 return false; 
             }
             }
