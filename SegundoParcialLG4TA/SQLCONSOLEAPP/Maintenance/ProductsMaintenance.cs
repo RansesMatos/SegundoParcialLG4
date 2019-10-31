@@ -14,7 +14,6 @@ namespace SQLCONSOLEAPP.Maintenance
         {
             return entities.Products.ToList();
         }
-        //dd
         public Products GetById ( int? idproduct)
         {
             var query = entities.Products.FirstOrDefault(i => i.ProductID == idproduct);
@@ -121,7 +120,6 @@ namespace SQLCONSOLEAPP.Maintenance
                 query.ReorderLevel = products.ReorderLevel;
                 query.Discontinued = products.Discontinued;
 
-               
                 entities.SaveChanges();
                 Console.WriteLine("Datos actualizados correctamente");
                 return true;

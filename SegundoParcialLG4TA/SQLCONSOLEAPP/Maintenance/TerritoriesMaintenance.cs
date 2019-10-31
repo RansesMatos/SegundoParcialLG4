@@ -7,48 +7,45 @@ using System.Threading.Tasks;
 
 namespace SQLCONSOLEAPP.Maintenance
 {
-    public class CategoriesMaintenance
+    public class TerritoriesMaintenance
     {
         NorthwindEntities entities = new NorthwindEntities();
-        public List<Categories> GetCategories()
+        public List<Territories> GetTerritories()
         {
-            return entities.Categories.ToList();
+            return entities.Territories.ToList();
         }
-        public Categories GetById(int? idcategory)
+        public Territories GetById(string idTerritorie)
         {
-            var query = entities.Categories.FirstOrDefault(i => i.CategoryID == idcategory);
+            var query = entities.Territories.FirstOrDefault(i => i.TerritoryID == idTerritorie);
             return query;
         }
-        public bool Insert(Categories categories)
+        public bool Insert(Territories territorie)
         {
             try
             {
-                entities.Categories.Add(categories);
+                entities.Territories.Add(territorie);
                 entities.SaveChanges();
                 Console.WriteLine("Datos insertados con exito");
                 return true;
             }
             catch (Exception)
             {
-                if (String.IsNullOrEmpty(categories.CategoryName) || String.IsNullOrEmpty(categories.Description))
+                if (String.IsNullOrEmpty(territorie.TerritoryDescription))
                 {
-                    Console.WriteLine("Debe insertar el nombre o descripcion de la categoria");
+                    Console.WriteLine("Debe insertar la descripcion del Territorio");
                 };
-
                 return false;
             }
-              
+
         }
-        public bool Update(Categories categories)
+        public bool Update(Territories territorie)
         {
             try
             {
-                var query = (from a in entities.Categories where a.CategoryID == categories.CategoryID select a).FirstOrDefault();
+                var query = (from a in entities.Territories where a.TerritoryID == territorie.TerritoryID select a).FirstOrDefault();
 
-                query.CategoryName = categories.CategoryName;
-                query.Description = categories.Description;
-                query.Picture = categories.Picture = null;
-
+                query.TerritoryDescription = territorie.TerritoryDescription;
+                query.RegionID = territorie.RegionID;
                 entities.SaveChanges();
                 Console.WriteLine("Datos actualizados correctamente");
                 return true;
@@ -59,12 +56,12 @@ namespace SQLCONSOLEAPP.Maintenance
                 return false;
             }
         }
-        public bool Delete(int?  idcategorie)
+        public bool Delete(string idTerritorie)
         {
             try
             {
-                var resultado = entities.Categories.Where(a => a.CategoryID == idcategorie).Select(x => x).FirstOrDefault();
-                entities.Categories.Remove(resultado);
+                var resultado = entities.Territories.Where(a => a.TerritoryID == idTerritorie).Select(x => x).FirstOrDefault();
+                entities.Territories.Remove(resultado);
                 Console.WriteLine("Datos eliminados correctamente");
                 entities.SaveChanges();
 

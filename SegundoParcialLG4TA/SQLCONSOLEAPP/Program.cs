@@ -16,8 +16,6 @@ namespace SQLCONSOLEAPP
             mp.MenuP();
 
             Console.ReadKey();
-
-
         }
     }
 }

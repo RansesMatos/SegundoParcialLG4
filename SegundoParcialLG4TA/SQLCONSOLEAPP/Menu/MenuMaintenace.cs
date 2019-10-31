@@ -56,9 +56,6 @@ namespace SegundoParcialLG4TA.Menu
                             break;
                     }
                 } while (op.Key != ConsoleKey.Escape);
-
-           
-        
         }   
         
     }
