@@ -14,11 +14,11 @@ namespace SQLCONSOLEAPP.Menu
     //dd
     public class Factura
     {
-        
+
         OrderData OD = new OrderData();
         Orders orders = new Orders();
         ProductsMaintenance PM = new ProductsMaintenance();
-        public void Imprimir ()
+        public void Imprimir()
         {
             OrdenDetailData ODD = new OrdenDetailData();
             Console.WriteLine("Inserta el ID de la Factura");
@@ -60,7 +60,7 @@ namespace SQLCONSOLEAPP.Menu
                     Console.WriteLine(item.ProductID + "\t" + item.Quantity + "\t" + producto.ProductName + "\t" + item.UnitPrice + "\t" + item.Discount);
                 }
             }
-            
+
 
         }
 
@@ -73,16 +73,16 @@ namespace SQLCONSOLEAPP.Menu
             decimal total = 0;
             int cantidad = 0;
             int productos;
-           
+
             OrderData OD = new OrderData();
             OrdenDetailData ODD = new OrdenDetailData();
-            
-            
+
+
             Console.WriteLine(" ID Cliente: ");
-            var id= Console.ReadLine();
+            var id = Console.ReadLine();
             Console.WriteLine(" ID empleado: ");
             var ide = Convert.ToInt16(Console.ReadLine());
-           
+
             try
             {
                 var todo = OD.ObtenerFacturas();
@@ -93,14 +93,14 @@ namespace SQLCONSOLEAPP.Menu
                 throw e;
             }
 
-            
-            
+
+
             Orders orders = new Orders()
             {
                 CustomerID = id,
                 EmployeeID = ide,
-                OrderDate = DateTime.Today            
-                                            
+                OrderDate = DateTime.Today
+
             };
 
             try
@@ -125,11 +125,11 @@ namespace SQLCONSOLEAPP.Menu
             Console.WriteLine(id);
 
             Console.WriteLine("# de productos a registrar: ");
-            productos = Convert.ToInt16(Console.ReadLine());    
+            productos = Convert.ToInt16(Console.ReadLine());
 
             List<Order_Details> Orden_list = new List<Order_Details>();
-            
-            
+
+
 
             do
             {
@@ -139,7 +139,7 @@ namespace SQLCONSOLEAPP.Menu
                     var producto = PM.GetById(Convert.ToInt16(Console.ReadLine()));
                     Orden_list.Add(new Order_Details(ID.OrderID, producto.ProductID, Convert.ToInt16(producto.UnitPrice), Convert.ToInt16(Console.ReadLine()), Convert.ToInt16(Console.ReadLine())));
                 }
-                catch 
+                catch
                 {
                     Console.WriteLine("El valor introducido esta incorrecto ");
 
@@ -149,27 +149,27 @@ namespace SQLCONSOLEAPP.Menu
                     mnu.MenuP();
 
                 }
-               
 
-               
+
+
                 //Orden_list.Add(new Order_Details(ID.OrderID, Convert.ToInt16(Console.ReadLine()), Convert.ToInt16(Console.ReadLine()), Convert.ToInt16(Console.ReadLine()), Convert.ToInt16(Console.ReadLine())));
-                             
+
             }
             while (productos > Orden_list.Count);
 
-        
+
 
             Console.WriteLine();
             Console.WriteLine();
             //Numero de la orden
             Console.WriteLine(ID.OrderID);
-           //nombre del cliente
-           
+            //nombre del cliente
+
 
             Console.WriteLine();
             //Detalle de la orden
 
-           
+
             Console.WriteLine("IDAriculo\t|Ariculo\t|Precio\t|Cantidad\t|Descuento\t|Cargo Total|  ");
             foreach (Order_Details ord in Orden_list)
             {
@@ -188,10 +188,10 @@ namespace SQLCONSOLEAPP.Menu
                     ODD.Insertar(order_De);
                     ODD.SAVE(order_De);
                 }
-                catch (Exception )
+                catch (Exception)
                 {
                     Console.WriteLine("El valor introducido esta incorrecto ");
-                    
+
                     Console.WriteLine("Precione una tecla para volver");
                     Console.ReadKey();
                     MenuPrincipal mnu = new MenuPrincipal();
@@ -200,7 +200,7 @@ namespace SQLCONSOLEAPP.Menu
 
                 var name = PM.GetById(ord.ProductID);
 
-                Console.WriteLine(ord.ProductID + "\t" +name.ProductName + "\t" + ord.Quantity + "\t"
+                Console.WriteLine(ord.ProductID + "\t" + name.ProductName + "\t" + ord.Quantity + "\t"
                     + ord.UnitPrice + "\t" + +(monto = (ord.UnitPrice * ord.Quantity)));
 
                 cantidad = ord.Quantity + cantidad;
@@ -212,7 +212,7 @@ namespace SQLCONSOLEAPP.Menu
             Console.WriteLine("Total De articulos:       " + cantidad + "\t Total A pagar:   " + total);
 
             OD.Save(orders);
-            
+
 
             Console.ReadKey();
         }

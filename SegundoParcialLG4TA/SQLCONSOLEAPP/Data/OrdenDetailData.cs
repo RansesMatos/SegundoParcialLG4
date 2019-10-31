@@ -35,7 +35,7 @@ namespace SQLCONSOLEAPP.Data
                 {
 
                     n.Order_Details.Add(ORD);
-                    
+
 
                 }
                 return true;
@@ -95,7 +95,7 @@ namespace SQLCONSOLEAPP.Data
                 }
                 return true;
             }
-            catch (Exception) 
+            catch (Exception)
             {
 
                 Console.WriteLine("El nombre del Cliente no Existe");
@@ -103,7 +103,7 @@ namespace SQLCONSOLEAPP.Data
                 mnu.MenuP();
                 return false;
 
-                 }
+            }
         }
     }
 }

@@ -18,10 +18,10 @@ namespace SQLCONSOLEAPP.Data
         }
         public Orders GetById(int orderID)
         {
-            var Z =n.Set<Orders>().FirstOrDefault(x => x.OrderID == orderID);
+            var Z = n.Set<Orders>().FirstOrDefault(x => x.OrderID == orderID);
             return Z;
-                
-            
+
+
 
         }
         public Orders GetAuto()
@@ -36,72 +36,72 @@ namespace SQLCONSOLEAPP.Data
 
 
         public List<Orders> ObtenerFacturas()
+        {
+
+
+
+            return n.Orders.ToList();
+
+
+
+        }
+
+        public bool Insertar(Orders orders)
+        {
+
+            try
             {
 
-                
 
-                    return n.Orders.ToList();
-                
+                n.Orders.Add(orders);
+                n.SaveChanges();
 
 
+                return true;
             }
-
-            public bool Insertar(Orders orders)
-            {
-
-                try
-                {
-                    
-
-                        n.Orders.Add(orders);
-                        n.SaveChanges();
-
-                    
-                    return true;
-                }
-                catch (Exception e) 
+            catch (Exception e)
             {
                 Console.WriteLine("El nombre del Cliente no Existe");
                 MenuPrincipal mnu = new MenuPrincipal();
                 mnu.MenuP();
-                return false; 
+                return false;
             }
-            }
+        }
 
-            public bool Eliminar(Orders orders)
+        public bool Eliminar(Orders orders)
+        {
+
+            try
             {
 
-                try
-                {
-                   
 
-                        var resultado = n.Orders.Where(a => a.OrderID == orders.OrderID).Select(x => x).FirstOrDefault();
-                        n.Orders.Remove(resultado);
-                        n.SaveChanges();
+                var resultado = n.Orders.Where(a => a.OrderID == orders.OrderID).Select(x => x).FirstOrDefault();
+                n.Orders.Remove(resultado);
+                n.SaveChanges();
 
-                    
-                    return true;
-                }
-                catch (Exception) { return false; }
 
+                return true;
             }
+            catch (Exception) { return false; }
 
-            public bool Actualizar(Orders orders)
+        }
+
+        public bool Actualizar(Orders orders)
+        {
+
+            try
             {
 
-                try
-                {
-                    
 
-                       var resultado = n.Orders.Where(a => a.Order_Details == orders.Order_Details).Select(x => x).FirstOrDefault();
-                        resultado.OrderID = orders.OrderID;
-                        n.SaveChanges();
+                var resultado = n.Orders.Where(a => a.Order_Details == orders.Order_Details).Select(x => x).FirstOrDefault();
+                resultado.OrderID = orders.OrderID;
+                n.SaveChanges();
 
-                     return true;
-                }
-                catch (Exception) { return false; }
-
+                return true;
             }
+            catch (Exception) { return false; }
+
+        }
 
     }
 }
