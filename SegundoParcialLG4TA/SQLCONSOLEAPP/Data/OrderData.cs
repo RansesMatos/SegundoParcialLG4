@@ -1,4 +1,5 @@
 ﻿using SegundoParcialLG4TA.Menu;
+using SQLCONSOLEAPP.Menu;
 using SQLCONSOLEAPP.Models;
 using System;
 using System.Collections.Generic;
@@ -57,13 +58,15 @@ namespace SQLCONSOLEAPP.Data
                 n.SaveChanges();
 
 
+
                 return true;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Console.WriteLine("El nombre del Cliente no Existe");
-                MenuPrincipal mnu = new MenuPrincipal();
-                mnu.MenuP();
+                Console.ReadKey();
+                Factura FA = new Factura();
+                FA.facturaOrden();
                 return false;
             }
         }
@@ -101,6 +104,28 @@ namespace SQLCONSOLEAPP.Data
             }
             catch (Exception) { return false; }
 
+        }
+        public bool Save(Orders orders)
+        {
+
+            try
+            {
+
+
+            
+                n.SaveChanges();
+
+
+                return true;
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error al guardar Presione una tecla para continuar");
+                Console.ReadKey();
+                Factura FA = new Factura();
+                FA.facturaOrden();
+                return false;
+            }
         }
 
     }

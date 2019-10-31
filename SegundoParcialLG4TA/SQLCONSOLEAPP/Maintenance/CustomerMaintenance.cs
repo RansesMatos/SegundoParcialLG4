@@ -15,6 +15,16 @@ namespace SQLCONSOLEAPP.Maintenance
 
         public bool Insert(Customers customers)
         {
+            //try
+            //{
+            //    entities.Customers.Add(customer);
+            //    return true;
+            //}
+            //catch (Exception)
+            //{
+            //    return false;
+            //}
+            
             try
             {
                 entities.Customers.Add(customers);
