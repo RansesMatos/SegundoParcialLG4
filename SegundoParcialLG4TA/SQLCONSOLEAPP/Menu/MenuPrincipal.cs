@@ -48,7 +48,8 @@ namespace SegundoParcialLG4TA.Menu
                     case ConsoleKey.F:
                         Console.WriteLine("Ud seleccionó la opción Facturacion");
                         //Factura FA = new Factura();
-                        FA.factura();
+                        FA.facturaOrden();
+                       
                         Console.ReadKey();
                         break;
 
