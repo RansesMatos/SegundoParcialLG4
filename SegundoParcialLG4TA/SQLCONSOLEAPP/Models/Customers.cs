@@ -34,5 +34,23 @@ namespace SQLCONSOLEAPP.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Orders> Orders { get; set; }
+
+        public static Customers FromCsv(string csv)
+        {
+            string[] values = csv.Split(';');
+            Customers customers = new Customers();
+            customers.CustomerID = values[0];
+            customers.CompanyName = values[1];
+            customers.ContactTitle = values[2];
+            customers.Address = values[3];
+            customers.City = values[4];
+            customers.Region = values[5];
+            customers.PostalCode = values[6];
+            customers.Country = values[7];
+            customers.Phone = values[8];
+            customers.Fax = values[9];
+
+            return customers;
+        }
     }
 }

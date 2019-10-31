@@ -17,7 +17,6 @@ namespace SQLCONSOLEAPP.Maintenance
         public Products GetById ( int? idproduct)
         {
             var query = entities.Products.FirstOrDefault(i => i.ProductID == idproduct);
-           
             return query;
         }
         public bool Insert(Products products)
@@ -30,60 +29,7 @@ namespace SQLCONSOLEAPP.Maintenance
                 return true;
             }
             catch (Exception)
-            {
-                if (products.ProductName == null)
-                {
-                    Console.WriteLine("Debe Ingresar el Nombre del Producto");
-                }
-                else
-                {
-                    if (products.SupplierID == null)
-                    {
-                        Console.WriteLine("Debe Ingresar el Id del Suplidor");
-                    }
-                    else
-                    {
-                        if (products.CategoryID == null)
-                        {
-                            Console.WriteLine("Debe Ingresar el Id del Categoria");
-                        }
-                        else
-                        {
-                            if (products.QuantityPerUnit == null)
-                            {
-                                Console.WriteLine("Debe Ingresar la cantidad por unidad");
-                            }
-                            else
-                            {
-                                if (products.UnitPrice == null)
-                                {
-                                    Console.WriteLine("Debe Ingresar el precio por unidad");
-                                }
-                                else
-                                {
-                                    if (products.UnitsInStock == null)
-                                    {
-                                        Console.WriteLine("Debe Ingresar la unidad en stock");
-                                    }
-                                    else
-                                    {
-                                        if (products.UnitsOnOrder == null)
-                                        {
-                                            Console.WriteLine("Debe Ingresar el orden de la unidad");
-                                        }
-                                        else
-                                        {
-                                            if (products.ReorderLevel == null)
-                                            {
-                                                Console.WriteLine("Debe Ingresar el nivel de reorden");
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+            { 
                 Console.WriteLine("Ocurrio un problema al intentar insertar datos");
                 return false;
             }
@@ -181,6 +127,21 @@ namespace SQLCONSOLEAPP.Maintenance
                 }
                 Console.WriteLine("Ocurrio un problema al intentar actualizar los datos");
                 return false;
+            }
+        }
+
+        public void TryToParse(string valor)
+        {
+            Int32 number;
+            bool result = Int32.TryParse(valor, out number);
+            if (result)
+            {
+                Console.WriteLine("'{0}'Reconocido como entero ", valor);
+            }
+            else
+            {
+                if (valor == null)
+                Console.WriteLine("'{0}' Reconocido como un valor no numerico", valor);
             }
         }
     }

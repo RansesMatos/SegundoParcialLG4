@@ -11,30 +11,15 @@ namespace SQLCONSOLEAPP.Maintenance
     public class CustomerMaintenance
     {
         NorthwindEntities entities = new NorthwindEntities();
-        public bool Insert(string customer)
+    
+
+        public bool Insert(Customers customers)
         {
-            //try
-            //{
-            //    entities.Customers.Add(customer);
-            //    return true;
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
-            \\
             try
             {
-                SqlConnection sql = new SqlConnection("data source=DESKTOP-IC6ES0H;initial catalog=Northwind;integrated security=True");
-                {
-                    SqlCommand command = new SqlCommand("INSERT INTO CUSTOMERS (CustomerID,CompanyName,ContactName,ContactTitle,Address,City,Region,PostalCode,Country,Phone,Fax) VALUES(@pathCsv)", sql);
-                    command.Parameters.AddWithValue("@pathCsv", customer);
-
-                    sql.Open();
-                    command.ExecuteNonQuery();
-                    sql.Close();
-                }
-                Console.WriteLine("Exitos");
+                entities.Customers.Add(customers);
+                entities.SaveChanges();
+                Console.WriteLine("Datos insertados con exitos");
                 return true;
             }
             catch (Exception)

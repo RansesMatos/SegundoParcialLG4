@@ -20,8 +20,6 @@ namespace SegundoParcialLG4TA.Menu
             Customers customer = new Customers();
             Customers ss = new Customers();
             CustomerMaintenance maintenance = new CustomerMaintenance();
-            
-            
 
             ConsoleKeyInfo sa;
             do
@@ -58,33 +56,13 @@ namespace SegundoParcialLG4TA.Menu
                         string content = File.ReadAllText(appSettings, Encoding.UTF8);
                         CustomerMaintenance cm = new CustomerMaintenance();
                         Console.WriteLine(content);
-                        
-                        //string tabla = "Customers";
-                        //byte ncolums = 11;
-                        //string sentenciasql = "";
-                        //string[] columnas = File.ReadAllLines("C:/Users/well-/Source/Repos/SegundoParcialLG4mod/SegundoParcialLG4TA/SQLCONSOLEAPP/Files/prueba.csv");
-                        //try
-                        //{
-                        //    foreach (var linea in columnas)
-                        //    {
-                        //        char delimitador = ';';
-                        //        string[] datos = linea.Split(delimitador);
 
-                        //        for (byte colum = 0; colum < ncolums; colum++)
-                        //        {
-                        //            content = content + datos[colum] + ";";
-                        //        }
+                        //var path = @"C:\Users\well\Source\Repos\SegundoParcialLG4mod\SegundoParcialLG4TA\SQLCONSOLEAPP\Files\prueba.csv";
 
-                        //        sentenciasql ="INSERT INTO" + tabla + "VALUES(" + sentenciasql; sentenciasql = sentenciasql.Substring(0, sentenciasql.Length - 2) + ")";
-                        //        Console.WriteLine(sentenciasql);
-                        //        sentenciasql = "";
-                        //    }
-                        //}
-                        //catch (Exception)
-                        //{
-
-                        //    throw;
-                        //}
+                        List<Customers> mia = File.ReadAllLines("C:\\prueba.csv")
+                                           .Skip(1)
+                                           .Select(v => Customers.FromCsv(v))
+                                           .ToList();
 
                         Console.Write("Presione una tecla para continuar...");
                         Console.ReadKey();
