@@ -51,6 +51,7 @@ namespace SegundoParcialLG4TA.Menu
                     case ConsoleKey.I:
                         Console.WriteLine("Ud seleccionó la Imprimir una factura");
                         Console.Write("Presione una tecla para continuar...");
+                        Console.WriteLine();
                         FA.Imprimir();
                         Console.ReadKey();
                         break;
