@@ -67,16 +67,11 @@ namespace SQLCONSOLEAPP.Menu
 
 
 
-        public void factura()
+        public void facturaOrden()
         {
-            decimal monto;
-            decimal total = 0;
-            int cantidad = 0;
-            int productos;
-
+            
             OrderData OD = new OrderData();
-            OrdenDetailData ODD = new OrdenDetailData();
-
+            
 
             Console.WriteLine(" ID Cliente: ");
             var id = Console.ReadLine();
@@ -107,7 +102,7 @@ namespace SQLCONSOLEAPP.Menu
             {
                 OD.Insertar(orders);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
                 Console.WriteLine("El valor introducido esta incorrecto ");
@@ -118,11 +113,28 @@ namespace SQLCONSOLEAPP.Menu
             }
 
 
-            var ID = OD.GetAuto();
+            
 
 
             Console.WriteLine(" Nombre Cliente: ");
             Console.WriteLine(id);
+
+            OD.Save(orders);
+
+
+
+        }
+
+        public void FacturaDetalle() 
+        {
+            decimal monto;
+            decimal total = 0;
+            int cantidad = 0;
+            int productos;
+            OrderData OD = new OrderData();
+            OrdenDetailData ODD = new OrdenDetailData();
+            var ID = OD.GetAuto();
+
 
             Console.WriteLine("# de productos a registrar: ");
             productos = Convert.ToInt16(Console.ReadLine());
@@ -141,17 +153,15 @@ namespace SQLCONSOLEAPP.Menu
                 }
                 catch
                 {
+                    Orden_list.RemoveAt(Orden_list.Count);
                     Console.WriteLine("El valor introducido esta incorrecto ");
 
-                    Console.WriteLine("Precione una tecla para volver");
+                    Console.WriteLine("Precione una tecla para Eliminar este registro y continuar");
                     Console.ReadKey();
                     MenuPrincipal mnu = new MenuPrincipal();
                     mnu.MenuP();
 
                 }
-
-
-
                 //Orden_list.Add(new Order_Details(ID.OrderID, Convert.ToInt16(Console.ReadLine()), Convert.ToInt16(Console.ReadLine()), Convert.ToInt16(Console.ReadLine()), Convert.ToInt16(Console.ReadLine())));
 
             }
@@ -187,6 +197,7 @@ namespace SQLCONSOLEAPP.Menu
                 {
                     ODD.Insertar(order_De);
                     ODD.SAVE(order_De);
+
                 }
                 catch (Exception)
                 {
@@ -211,12 +222,15 @@ namespace SQLCONSOLEAPP.Menu
             Console.WriteLine();
             Console.WriteLine("Total De articulos:       " + cantidad + "\t Total A pagar:   " + total);
 
-            OD.Save(orders);
-
+           
 
             Console.ReadKey();
-        }
 
+
+
+
+
+        }
 
 
 
